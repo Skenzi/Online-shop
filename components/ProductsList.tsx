@@ -1,10 +1,10 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
-const ProductsList = ({ products }) => {
-    return <Grid container spacing={2} sx={{mt: '20px'}}>
+const ProductsList = ({ products, addToOrder }) => {
+    return <Grid container spacing={2} sx={{mt: '20px', mb: '20px'}}>
         {products.map((product) => {
-            return <Grid item xs={3}>
-                <Card sx={{ maxWidth: 300 }}>
+            return <Grid key={product.id} item xs={12} sm={4}>
+                <Card>
                     <CardMedia alt={product.name} component="img" height="140" image={product.image} />
                     <CardContent>
                         <Typography component="div" variant="h5">
@@ -15,7 +15,7 @@ const ProductsList = ({ products }) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small">Купить</Button>
+                        <Button size="small" onClick={addToOrder(product)}>Купить</Button>
                     </CardActions>
                 </Card>
             </Grid>
