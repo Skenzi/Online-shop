@@ -1,11 +1,15 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, IconButton, Toolbar, Typography, Link, Breadcrumbs } from "@mui/material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 const Header = ({ toggleBasket }) => {
     return <Box component="header">
         <AppBar position="static">
             <Toolbar>
-                <Typography component="span" variant="h6" sx={{flexGrow: 1}}>Online-shop</Typography>
+                <Breadcrumbs sx={{flexGrow: 1}} aria-label="breadcrumb">
+                <Link href="/" underline="none" variant="h6">
+                    Online-shop
+                </Link>
+                </Breadcrumbs>
                 <IconButton onClick={toggleBasket}>
                     <ShoppingBasketIcon />
                 </IconButton>

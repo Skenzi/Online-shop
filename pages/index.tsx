@@ -28,10 +28,19 @@ export default function Home() {
         const newOrder = order.filter((item) => item.id !== id);
         setOrder(newOrder);
     };
+    const searchFilter = (keyWord) => {
+        const filterProducts = products.filter((item) => {
+            return item.name.toLowerCase().includes(keyWord) || item.category.includes(keyWord);
+        });
+        setItems(filterProducts);
+    };
+    const resetFilter = () => {
+        setItems(products);
+    };
     return <ThemeProvider theme={theme}>
         <Header toggleBasket={toggleBasket} />
         <Container>
-            <SearchForm />
+            <SearchForm searchFilter={searchFilter} />
             <ProductsList addToOrder={addToOrder} products={items} />
         </Container>
         <Basket order={order} toggleBasket={toggleBasket} openBasket={openBasket} removeFromOrder={removeFromOrder} />

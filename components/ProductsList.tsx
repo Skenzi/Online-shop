@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 
 const ProductsList = ({ products, addToOrder }) => {
     return <Grid container spacing={2} sx={{mt: '20px', mb: '20px'}}>
-        {products.map((product) => {
+        {products.length ? products.map((product) => {
             return <Grid key={product.id} item xs={12} sm={4}>
                 <Card>
                     <CardMedia alt={product.name} component="img" height="140" image={product.image} />
@@ -19,7 +19,7 @@ const ProductsList = ({ products, addToOrder }) => {
                     </CardActions>
                 </Card>
             </Grid>
-        })}
+        }) : <Typography component="h2">Товара нет :С</Typography>}
     </Grid>
 };
 
