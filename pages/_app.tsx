@@ -1,5 +1,13 @@
+import React from 'react';
 import '../styles/global.scss';
 
-export default function App({ Component, pageProps }) {
-    return <Component {...pageProps} />;
+interface Props {
+    Component: React.FC,
+    pageProps: object
+}
+
+const App = function ({ Component, pageProps }: Props) {
+  return <Component {...pageProps} />;
 };
+
+export default App;
